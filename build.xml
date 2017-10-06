@@ -5,25 +5,25 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. -->
 		<project basedir="." default="jar" name="HelloWorldJSP">
-        	<property environment="env"/>
-            <property name="debuglevel" value="source,lines,vars"/>
-            <property name="build.dir" value="build"/>
+        		<property environment="env"/>
+            		<property name="debuglevel" value="source,lines,vars"/>
+            		<property name="build.dir" value="build"/>
 			<property name="output.dir" value="${build.dir}/jsp"/>
-            <property name="src.dir" value="WebContent"/>
-            <property name = "full-compile" value = "true" /> 
+            		<property name="src.dir" value="WebContent"/>
+            		<property name = "full-compile" value = "true" /> 
 			<property name="jar.dir" value="${build.dir}/jar"/>
 			<property name="main-class"  value="HelloJSP"/>
                           		
-            <target name="init">
-            	<mkdir dir="${build.dir}"/>
-            	<mkdir dir="${output.dir}"/>
-             </target>
+            		<target name="init">
+            			<mkdir dir="${build.dir}"/>
+            			<mkdir dir="${output.dir}"/>
+           		</target>
               	    
-             <target name="clean">
-             	<delete dir="${build.dir}"/>
-             	<delete dir="${output.dir}"/>
-             	<delete dir="${jar.dir}"/>
-             </target>
+             		<target name="clean">
+             			<delete dir="${build.dir}"/>
+             			<delete dir="${output.dir}"/>
+             			<delete dir="${jar.dir}"/>
+             		</target>
 			
 			<target name="deploy" depends="init">
 			  <copy todir="${output.dir}">
@@ -39,13 +39,13 @@
 			  </copy>
 			</target>
               	    
-            <target name="jar" depends="deploy">
-             	<mkdir dir="${jar.dir}"/>
-              	<jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${src.dir}">
-              	<manifest>
-              		<attribute name="Main-Class" value="${main-class}"/>
-                </manifest>
-              	</jar>
-              </target>
+            		<target name="jar" depends="deploy">
+             			<mkdir dir="${jar.dir}"/>
+              			<jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${src.dir}">
+              				<manifest>
+              					<attribute name="Main-Class" value="${main-class}"/>
+                			</manifest>
+              			</jar>
+              		</target>
 
               </project>
